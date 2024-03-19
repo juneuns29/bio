@@ -80,6 +80,32 @@ JSP
 			그런데 HTML 의 경우 사용하는 태그가 이미 정의 되어있고(W3c)
 			xml의 경우는 사용자가 태그를 정의하고
 			그 태그를 이용해서 문서를 만든다.
+			
+		xml 파일은 주로 프로그램 환경설정을 위한 목적으로 많이 사용되는 문서.
+		
+		실행순서
+			먼저 xml파일을 읽은 후
+			그 파일의 내용을 분석 ==> 내용 분석 : "파싱한다." 라고 표현한다.
+			
+			==> 파싱된 결과를 프로그램에서 이용
+			
+		참고 ]
+			xml 문서를 파싱하기 위해서는 그 xml 문서의 태그의 의미를 알아야 한다.
+			해당 태그들은 xml 문서를 만드는 사람이  태그의 순서, 의미, 구조,... 등을
+			정의해 놓은 문서가 별도로 존재한다.
+			이 문서를 "DTD" 또는 "스키마문서" 라고 부른다.
+	
+	*****
+	당부 ]
+		서버 설정 내용이 이해가 안가더라도 절대로
+			XML 언어에 대한 공부는 삼가하세요.
+			
+		XML 언어에 여려분이 궁금해하는 그 태그들의 내용은 없습니다.
+		
+-----------------------------------------------------------------------------------------
+		
+
+# server.xml 수정내용 : 서버에 대한 전반적인 설정
 
 <Connector connectionTimeout="20000" 
     			maxParameterCount="1000" 
@@ -116,6 +142,106 @@ JSP
 	서버프로그램이 변경되거나 (클래스가 추가되거나 하는 작업..)
 	서버의 설정이 변경되면
 	반드시 서버를 다시 시작해야 한다.
+
+
+# web.xml
+	
+	<welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
+    ==> 경로로 요청하는 경우 응답해줄 문서를 정의하는 부분....
+    	
+    	localhost/
+    	로 요청하면 <welcome-file> 로 정의되어있는 문서로 응답해준다.
+
+
+# Post 방식 인코딩
+
+  <!-- A filter that sets character encoding that is used to decode -->
+  <!-- parameters in a POST request -->
+
+    <filter>
+        <filter-name>setCharacterEncodingFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <!-- <async-supported>true</async-supported> -->
+    </filter>
+
+  <!-- The mapping for the Set Character Encoding Filter -->
+
+    <filter-mapping>
+        <filter-name>setCharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+------------------------------------------------------------------------------------------
+
+JSP 구조
+	
+	JSP는 응답 문서를 만들기 위한 언어의 일종
+	
+	엄밀히 말해서 
+	웹에서 응답 문서는 HTML 문서이기 때문에
+	HTML 이 중심이 된다. ==> 전체적인 구조가 HTML 형식이 되어야 한다.
+	그리고 추가적으로 Java 적인 요소가 포함 될 수 있다.
+	
+	따라서 결론적으로 JSP 문서는 자바적인 요소를 포함 할 수 있는 스크립트 언어이다.
+	
+	HTML 문서와의 차이점
+		HTML은 서버에서 실행이 불가능하고
+		오직 클라이언트의 웹브라우저에서만 실행이 가능한 언어이다.
+		==> 서버에서는 오직 미리 준비된 문서를 단순히 응답하는 것일 뿐
+			내용 변화를 시킬 수 없다.
+			
+		JSP 는 서버에서 실행되는 언어이다.
+		다시 말해서 클라이언트의 웹브라우저에서 실행되는 문서가 아니다.
+		==> 요청이 올때마다 서버측에서 실행을 해서
+			새로운 HTML 문서를 제작하는 용도로 사용된다.
+			따라서 실행할때마다 내용을 바꿀 수 있기 때문에
+			응답 문서의  내용 변화를 시킬 수 있다.
+			
+			
+따라서 JSP  구조에서 공부해야할 내용은
+	"자바적인 요소를 어떤 방식으로 HTML 문서내부에 추가하는지 "
+를 공부하게 된다.
+
+-----------------------------------------------------------------------------------------
+
+지시자
+==> JSP  문서의 특성이나 처리 방식을 지시하는 명령
+
+	형식 ]
+		
+		<%@ 명령어 속성="값" 속성="값"  %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
