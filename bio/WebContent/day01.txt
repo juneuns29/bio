@@ -1,0 +1,31 @@
+1.
+https://www.eclipse.org/downloads/packages/
+
+2. 우측 베너에서 
+	MORE DOWNLOADS 아래의 
+		Older Versions 클릭
+
+3. 2020-06 클릭
+
+4. Eclipse IDE for Enterprise Java Developers 의
+	Windows x86_64 클릭
+
+
+
+%CATALINA_HOME%\bin
+
+-- 오라클 포트 변경
+
+sqlplus / as sysdba
+접속
+
+exec dbms_xdb.sethttpport(28080)
+
+
+
+
+
+
+
+
+
