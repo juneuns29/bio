@@ -7,7 +7,8 @@
 </head>
 <body>
 <%
-	for(int i = 0 ; i < 5 ; i++ ){
+	int i ;
+	for(i = 0 ; i < 5 ; i++ ){
 %>
 	<h1 style="text-align: center;">Main Page</h1>
 <%
