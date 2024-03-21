@@ -1,12 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Join</title>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../../../css/w3.css">
-<link rel="stylesheet" type="text/css" href="../../../css/user.css">
-<!-- <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script> -->
-<script type="text/javascript" src="../../../js/jquery-3.7.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../resources/css/w3.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/user.css">
+<script type="text/javascript" src="../resources/js/jquery-3.7.1.min.js"></script>
 <style type="text/css">
     #chkBtn {
         width: 85px;
@@ -33,7 +33,7 @@
 <body>
     <div class="w3-content mxw650">
         <h1 class="w3-blue w3-center w3-padding w3-card-4">회원가입</h1>
-        <form method="POST" action="" name="frm" id="frm" 
+        <form method="GET" action="join_result.jsp" name="frm" id="frm" 
                 class="w3-col w3-light-grey mgt20 w3-card-4 w3-padding pdh30">
             <div class="w3-col w3-padding">
                 <label for="name" class="w3-col m3 lbl w3-text-gray w3-right-align">이 름 : </label>
