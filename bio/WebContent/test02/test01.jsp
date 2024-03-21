@@ -50,7 +50,7 @@
 		<h1 class="w3-purple w3-padding w3-card-4">Name : <%= name %></h1>
 		<h1 class="w3-deep-purple w3-padding w3-card-4">Age : <%= age %></h1>
 		<p class="w3-text-blue"><%= "* 문자열 데이터 입력 *" %></p>
-		<a href="result.jsp?id=jennie&pw=12345&mail=jennie@human.com">데이터 전송</a>
+		<a href="result.jsp?id=jennie&name=제니&mail=jennie@human.com">데이터 전송</a>
 		<pre>
 			제니정보 : <%= "\n이름 : " + name + "\n나이 : " + age %>
 		</pre>
