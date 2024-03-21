@@ -28,7 +28,32 @@
             }
         });
         
-        $('#jbtn').click(function(){
+        function tCheck(t, v){
+        	if(!v){
+	        	t.value = '';
+	        	t.focus();
+        	}
+        }
+        
+        $('#join').click(function(){
+        	var sid = document.frm.id.value;
+        	var spw = document.frm.pw.value;
+        	var srepw = document.frm.repw.value;
+        	if(spw != srepw){
+        		document.frm.repw.value = '';
+        		document.frm.repw.focus();
+        		alert('비밀번호가 일치하지 않습니다.');
+        		return;
+        	}
+        	var smail = document.frm.mail.value;
+        	var stel = document.frm.tel.value;
+        	var sgen = document.querySelectorAll('[name="gen"]:checked')[0].value;
+        	var sano = document.querySelectorAll('[name="avt"]:checked')[0].value;
+        	
+        	if(!sid || !spw || !smail || !stel || !sgen || !sano){
+        		return;
+        	}
+        	
         	$('#frm').submit();
         });
     });
@@ -90,7 +115,7 @@
                 <div class="w3-col m8">
                     <div class="w3-half w3-center">
                         <input type="radio" name="gen" id="F" 
-                                class="w3-radio rdo" value="F">
+                                class="w3-radio rdo" value="F" checked>
                         <label for="F" class="genlbl w3-text-gray">여 자</label>
                     </div>
                     <div class="w3-half w3-center">
@@ -107,7 +132,7 @@
                             <label for="11" class="inblock imgBox">
                                 <img src="/resources/image/avatar/img_avatar11.png" class="avtimg">
                             </label>
-                            <input type="radio" name="avt" id="11" class="w3-radio avtrdo" value="11">
+                            <input type="radio" name="avt" id="11" class="w3-radio avtrdo" value="11" checked>
                         </div>
                         <div class="inblock avtBox w3-center">
                             <label for="12" class="inblock imgBox">
