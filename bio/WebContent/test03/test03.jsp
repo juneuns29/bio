@@ -20,7 +20,7 @@
 			}
 			
 			var sid = $(this).attr('id');
-			if(sid == 'forward'){
+			if(sid == 'fbtn'){
 				$('#req').val('forward');
 			}
 			

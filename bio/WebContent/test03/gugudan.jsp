@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +9,7 @@
 <link rel="stylesheet" type="text/css" href="../resources/css/user.css">
 <script type="text/javascript" src="../resources/js/colorClass.js"></script>
 <%
-	String[] colorList = {
-			"w3-red", "w3-pink", "w3-purple", "w3-deep-purple", "w3-indigo",
-		    "w3-blue", "w3-aqua", "w3-teal", "w3-green", "w3-light-green", 
-		    "w3-lime", "w3-khaki", "w3-yellow", "w3-amber", "w3-orange", "w3-deep-orange"
-	};
+	String[] colorList = (String[]) request.getAttribute("colorList");
 %>
 </head>
 <body>
@@ -37,19 +34,15 @@
                 <div class="w3-padding" id="<%= dan %> dan">
 <%
 		for(int gop = 1 ; gop < 10 ; gop++ ){
-%>
-<%
-	if(dan == 5){
+			if(dan == 5){
 %>
 					<p class="w3-text-red"><%= dan %> x <%= gop %> = <%= dan * gop %></p>
 <%
-	} else {
+			} else {
 %>
 					<p><%= dan %> x <%= gop %> = <%= dan * gop %></p>
 <%
-	}
-%>  
-<%
+			}
 		}
 %>
                 </div>
@@ -64,35 +57,12 @@
     <script type="text/javascript">
     	var msg = '<%= request.getParameter("msg") %>';
     	
-    	if(msg && msg.length != 0){
-    		alert(msg);
+    	if(msg && (msg != 'null')){
+    		alert('msg : ' + msg);
     	} else {
     		alert('냉----------무');
     	}
     	
-        /*
-        // 2단 구구단 출력
-        var str = '';
-        for(var i = 1; i < 10 ; i++ ){
-            str += '<p>2 x ' + i + ' = ' + (2 * i) + '</p>';
-        } 
-        document.getElementById('2dan').innerHTML = str;
-        */
-        /*
-        var str = '';
-        for(var dan = 2; dan < 10 ; dan++ ){
-            str += '<div class="inblock w3-card-4 w3-margin" style="width: 150px;">';
-            str += '<h3 class="' + colorList[dan-1] + ' mgh0">' + dan + '단</h3>';
-            str += '<div class="w3-padding">';
-            for(var gop = 1 ; gop < 10 ; gop++ ){
-                str += '<p>' + dan + ' x ' + gop + ' = ' + (dan * gop) + '</p>';
-            }
-            str += '</div>';
-            str += '</div>';
-        }
-        
-        document.getElementById('fr').innerHTML = str;
-        */
     </script>
 </body>
 </html>
