@@ -16,10 +16,8 @@
 </head>
 <body>
 	<%
-		//session.setAttribute("SID", "jennie");
-		session.removeAttribute("SID");
-	
-		response.sendRedirect("anya.jsp");
+		session.setAttribute("SID", "anya");
+		response.sendRedirect("/main.jsp");
 	%>
 </body>
 </html>
