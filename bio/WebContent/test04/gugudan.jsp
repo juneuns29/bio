@@ -15,6 +15,7 @@
 
 </script>
 <%--
+	// 이전 파일에서 세션에 저장해놓았으므로 여기서는 생략하기로 한다.
 	String[] color = {
 			"w3-red", "w3-pink", "w3-purple", "w3-deep-purple", "w3-indigo",
 		    "w3-blue", "w3-aqua", "w3-teal", "w3-green", "w3-light-green", 
@@ -22,10 +23,13 @@
 	};
 	session.setAttribute("COLORLIST", color);
 --%>
+<%
+	request.setAttribute("NAME", "ANIA");
+%>
 </head>
 <body>
 	<div class="w3-content mxw750 w3-center">
-		<h1 class="w3-indigo w3-padding w3-card-4">구구단</h1>
+		<h1 class="w3-indigo w3-padding w3-card-4">${NAME} 구구단 - ${param.subj}</h1>
 		<div class="w3-col">
 <c:forEach var="dan" begin="2" end="9" varStatus="st">
 			<div class="inblock w3-card-4 mgb10" style="width: 150px;">

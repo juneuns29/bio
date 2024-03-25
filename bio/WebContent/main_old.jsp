@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,14 +27,20 @@
 	<div class="w3-content mxw650 w3-center">
 		<h1 class="w3-pink w3-padding w3-card-4">아냐 메인</h1>
 		<div class="w3-col mgt10">
-<!-- 로그인에 성공하면 session에 SID라는 속성으로 아이디를 기억시켜 놓을 것이므로 -->
-<c:if test="${not empty SID}">
-			<div class="w3-button w3-small w3-orange w3-left" id="logout">로그아웃</div>
-</c:if>
-<c:if test="${empty SID}">
-			<div class="w3-button w3-small w3-blue w3-right" id="join">회원가입</div>
-			<div class="w3-button w3-small w3-green w3-right" id="login">로그인</div>
-</c:if>
+<%
+	Object sid = session.getAttribute("SID");
+	
+	if(sid != null){
+%>
+			<div class="w3-button w3-small w3-orange w3-left w3-round-large mgw10" id="logout">로그아웃</div>
+<%
+	} else {
+%>
+			<div class="w3-button w3-small w3-blue w3-right w3-round-large mgw10" id="join">회원가입</div>
+			<div class="w3-button w3-small w3-green w3-right w3-round-large mgw10" id="login">로그인</div>
+<%
+	}
+%>
 		</div>
 	</div>
 </body>
