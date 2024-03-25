@@ -30,6 +30,10 @@
 </script>
 </head>
 <body>
+<%
+	session.setAttribute("NAME", "아냐");
+	request.setAttribute("PUPPY", "bond");
+%>
 	<div class="w3-content mxw650 w3-center">
 		<h1 class="w3-blue w3-padding w3-card-4">Request Form</h1>
 		<form method="get" action="req.jsp" name="frm" id="frm"

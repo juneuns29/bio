@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="../resources/css/w3.css">
 <link rel="stylesheet" type="text/css" href="../resources/css/user.css">
 <script type="text/javascript" src="../resources/js/colorClass.js"></script>
+	
 <%
 	String[] colorList = (String[]) request.getAttribute("colorList");
 %>
@@ -55,6 +56,9 @@
     
     
     <script type="text/javascript">
+    	alert('${NAME}');
+    	alert('${msg}');
+    	
     	var msg = '<%= request.getParameter("msg") %>';
     	
     	if(msg && (msg != 'null')){
