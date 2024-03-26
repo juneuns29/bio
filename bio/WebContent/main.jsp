@@ -15,18 +15,40 @@
 	$(document).ready(function(){
 		
 		$('#login').click(function(){
-			$(location).attr('href', '/loginProc.jsp');
+			var sid = '${SID}';
+			if(!sid || sid == 'null'){
+				$(location).attr('href', '/member/login.jsp');
+			} else {
+				alert('이미 로그인 했습니다.');
+			}
 		});
 		
 		$('#logout').click(function(){
 			$(location).attr('href', '/logoutProc.jsp');
+		});
+		
+		$('#join').click(function(){
+			// 로그인 여부 검사
+			var sid = '${SID}';
+			if(!sid || sid == 'null'){
+				$(location).attr('href', '/member/join.jsp');
+			//	location.href = '/member/join.jsp';
+			} else {
+				return;
+			}
 		});
 	});
 </script>
 </head>
 <body>
 	<div class="w3-content mxw650 w3-center">
-		<h1 class="w3-pink w3-padding w3-card-4">아냐 메인</h1>
+<c:if test="${not empty SID}">
+		<h1 class="w3-blue w3-padding w3-card-4">${SID} 메인</h1>
+</c:if>
+<c:if test="${empty SID}">
+		<h1 class="w3-pink w3-padding w3-card-4">SPY 메인</h1>
+</c:if>
+
 		<div class="w3-col mgt10">
 <!-- 로그인에 성공하면 session에 SID라는 속성으로 아이디를 기억시켜 놓을 것이므로 -->
 <%--

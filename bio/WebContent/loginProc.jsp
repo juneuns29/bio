@@ -12,7 +12,7 @@
 	--%>
 	<c:if test="${empty SID}">
 		<%
-			session.setAttribute("SID", "ania");
+			session.setAttribute("SID", request.getParameter("id"));
 		%>
 	</c:if>
 	
