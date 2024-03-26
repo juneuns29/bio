@@ -15,11 +15,11 @@
 	$(document).ready(function(){
 		
 		$('#login').click(function(){
-			$(location).attr('href', '/test03/loginProc.jsp');
+			$(location).attr('href', '/loginProc.jsp');
 		});
 		
 		$('#logout').click(function(){
-			$(location).attr('href', '/test03/logoutProc.jsp');
+			$(location).attr('href', '/logoutProc.jsp');
 		});
 	});
 </script>
@@ -29,6 +29,7 @@
 		<h1 class="w3-pink w3-padding w3-card-4">아냐 메인</h1>
 		<div class="w3-col mgt10">
 <!-- 로그인에 성공하면 session에 SID라는 속성으로 아이디를 기억시켜 놓을 것이므로 -->
+<%--
 <c:if test="${not empty SID}">
 			<div class="w3-button w3-small w3-orange w3-left" id="logout">로그아웃</div>
 </c:if>
@@ -36,6 +37,16 @@
 			<div class="w3-button w3-small w3-blue w3-right" id="join">회원가입</div>
 			<div class="w3-button w3-small w3-green w3-right" id="login">로그인</div>
 </c:if>
+--%>
+<c:choose>
+	<c:when test="${not empty SID}">
+			<div class="w3-button w3-small w3-orange w3-left" id="logout">로그아웃</div>
+	</c:when>
+	<c:when test="${empty SID}">
+			<div class="w3-button w3-small w3-blue w3-right" id="join">회원가입</div>
+			<div class="w3-button w3-small w3-green w3-right" id="login">로그인</div>
+	</c:when>
+</c:choose>
 		</div>
 	</div>
 </body>

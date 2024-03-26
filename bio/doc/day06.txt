@@ -288,8 +288,35 @@ core Tag
 				begin	: 시작값
 				end		: 종료값
 				step	: 증가값
+				
+	7. c:forToken
+		==> 하나의 문자열을 지정한 기호로 분리해서 반복하는 태그
+			자바의 StringTokenizer 와 비슷한 역할
+			
+		형식 ]
+			<c:forToken var="변수" items="데이터" delims="구분자">
+				처리내용....
+			</c:forToken>
+			
+			참고 ]
+				delims의 기술하는 구분자는 여러개의 문자를 동시에 입력할 수 있다.
+				
+				
+	8. c:redirect
+		==>  서버에서 강제로 요청을 변경하는 
+				response.sendRedirect() 와 같은 기능의 태그
+				
+		형식 1 ]
+			<c:redirect url="새로운요청" />
+			==> 일반적인 새로운 요청
 		
-		
+		형식 2 ]
+			<c:redirect url="새로운요청">
+				<c:param name="키값" value="데이터" />
+				...
+			</c:redirect>
+			==> 새로운 요청을 부가정보를 추가해서 만드는 방법
+
 
 
 
