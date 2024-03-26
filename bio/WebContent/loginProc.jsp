@@ -10,9 +10,20 @@
 	<%--
 		임시 로그인 처리용 jsp
 	--%>
+	
 	<c:if test="${empty SID}">
+		
 		<%
-			session.setAttribute("SID", request.getParameter("id"));
+				
+			if(request.getParameter("id").equals("ania") && request.getParameter("pw").equals("12345")){
+				session.setAttribute("SID", request.getParameter("id"));
+			} else {
+				// 입력데이터가 정확하지 않은 경우이므로
+				// 로그인 페이지로 다시 돌려보낸다.
+		%>
+			<c:redirect url="/member/login.jsp" />
+		<%
+			}
 		%>
 	</c:if>
 	
