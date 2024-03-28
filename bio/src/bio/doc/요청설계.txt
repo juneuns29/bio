@@ -26,6 +26,16 @@
 컨트롤러 :	bio.controller.member.Login
 응답문서 : /WEB-INF/views/member/login.jsp
 
+# 로그인 처리 요청 매핑
+
+요청내용 : 	/member/loginProc.ania
+파라미터 : 	id, pw
+컨트롤러 :	bio.controller.member.LoginProc
+응답문서 :	
+			redirect ]
+				성공 :	/main.ania
+				실패 : 	/member/login.ania
+
 
 
 
