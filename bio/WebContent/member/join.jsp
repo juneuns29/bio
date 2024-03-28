@@ -88,26 +88,11 @@
 	            },
 	            success: function(data){
 	                // 할일
-	                /*
-	                    서버에서 전송해주는 문서의 형태는
-	                        {
-	                            "result": "YES"
-	                        }
-	                    의 형태이고 이것을 변수에 기억하게 되면
-	                        var data = {
-	                            "result": "YES"
-	                        };
-	                    로 내부적으로 처리될 것이므로
-	                    매개변수로 선언해놓은 data는 JSON 객체가 된다.
-	                    따라서 그 객체의 내용을 사용할 때는
-	                    data.키값
-	                    의 형태로 사용하면 된다.
-	                    */
 	                var result = data.result;
 	                   
 	                // 태그 처리하고
 	                // 꺼낸결과로 조건처리
-	                if(result){
+	                if(result == 'YES'){
 	                    // 메세지 채워넣고
 	                    $('#idmsg').html('* 사용가능한 아이디입니다.');
 	                    // 글자색을 파란색으로 변경하고

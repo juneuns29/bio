@@ -9,20 +9,15 @@ import javax.servlet.http.*;
 
 import bio.db.*;
 
-/**
- * Servlet implementation class IdCheck
- */
-@WebServlet("/member/isUsable.ania")
+/* @WebServlet("/member/isUsable.ania") */
 public class IdCheck extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) 
 												throws ServletException, IOException {
 		// 할일
 		// 파라미터 받고
 		String sid = req.getParameter("id");
-				
 		// 데이터베이스 조회해서 결과받고
 		int cnt = getIdCnt(sid);
-		
 		// 결과 내보내고
 		// 문서작성도구 준비
 		PrintWriter pw = resp.getWriter();

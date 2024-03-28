@@ -17,21 +17,21 @@
 		$('#login').click(function(){
 			var sid = '${SID}';
 			if(!sid || sid == 'null'){
-				$(location).attr('href', '/member/login.jsp');
+				$(location).attr('href', '/member/login.ania');
 			} else {
 				alert('이미 로그인 했습니다.');
 			}
 		});
 		
 		$('#logout').click(function(){
-			$(location).attr('href', '/logoutProc.jsp');
+			$(location).attr('href', '/logoutProc.ania');
 		});
 		
 		$('#join').click(function(){
 			// 로그인 여부 검사
 			var sid = '${SID}';
 			if(!sid || sid == 'null'){
-				$(location).attr('href', '/member/join.jsp');
+				$(location).attr('href', '/member/join.ania');
 			//	location.href = '/member/join.jsp';
 			} else {
 				return;
