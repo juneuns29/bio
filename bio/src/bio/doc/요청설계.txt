@@ -26,7 +26,7 @@
 컨트롤러 :	bio.controller.member.Login
 응답문서 : /WEB-INF/views/member/login.jsp
 
-# 로그인 처리 요청 매핑
+# 로그인 처리 요청
 
 요청내용 : 	/member/loginProc.ania
 파라미터 : 	id, pw
@@ -36,7 +36,34 @@
 				성공 :	/main.ania
 				실패 : 	/member/login.ania
 
+# 로그아웃 처리 요청
+요청내용	:	/member/logoutProc.ania
+파라미터	:	없음
+컨트롤러	:	bio.controller.member.Logout
+응답문서	:	
+				redirect ]
+					성공 :	/main.ania
+					실패 :	/main.ania
+					
+# 회원가입 폼보기 요청
+요청내용	:	/member/join.ania
+파라미터	:	없음
+컨트롤러	:	bio.controller.member.Join
+응답문서	:	/WEB-INF/views/member/join.jsp
+
+# 아이디체크 요청
+요청내용	:	/member/idCheck.ania
+파라미터	:	id
+컨트롤러	:	bio.controller.member.IdCheck
+응답문서	:	text : "YES" || "NO"
 
 
+
+----------------------------------------------------------------------------------
+
+요청내용	:	
+파라미터	:	
+컨트롤러	:	
+응답문서	:	
 
 

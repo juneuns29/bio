@@ -24,7 +24,7 @@
 		});
 		
 		$('#logout').click(function(){
-			$(location).attr('href', '/logoutProc.ania');
+			$(location).attr('href', '/member/logoutProc.ania');
 		});
 		
 		$('#join').click(function(){
@@ -47,11 +47,11 @@
 		<div class="w3-col mgt10">
 <!-- 로그인에 성공하면 session에 SID라는 속성으로 아이디를 기억시켜 놓을 것이므로 -->
 <c:if test="${not empty SID}">
-			<div class="w3-button w3-small w3-orange w3-left" id="logout">로그아웃</div>
+			<div class="w3-btn w3-small w3-orange w3-left" id="logout">로그아웃</div>
 </c:if>
 <c:if test="${empty SID}">
-			<div class="w3-button w3-small w3-blue w3-right" id="join">회원가입</div>
-			<div class="w3-button w3-small w3-green w3-right" id="login">로그인</div>
+			<div class="w3-btn w3-small w3-blue w3-right" id="join">회원가입</div>
+			<div class="w3-btn w3-small w3-green w3-right" id="login">로그인</div>
 </c:if>
 		</div>
 	</div>
