@@ -80,19 +80,17 @@
 			$('#idmsg:not(".w3-hide")').addClass('w3-hide');
 
 	        $.ajax({
-	            url: 'http://localhost/member/isUsable.ania',
+	            url: 'http://localhost/member/idCheck.ania',
 	            type: 'POST',
-	            dataType: 'json',
+	            dataType: 'text',
 	            data: {
 	                id: sid
 	            },
 	            success: function(data){
 	                // 할일
-	                var result = data.result;
-	                   
 	                // 태그 처리하고
 	                // 꺼낸결과로 조건처리
-	                if(result == 'YES'){
+	                if(data == 'YES'){
 	                    // 메세지 채워넣고
 	                    $('#idmsg').html('* 사용가능한 아이디입니다.');
 	                    // 글자색을 파란색으로 변경하고

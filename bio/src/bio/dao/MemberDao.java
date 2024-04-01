@@ -61,5 +61,36 @@ public class MemberDao {
 		// 결과 반환해주고
 		return cnt;
 	}
-
+	
+	/**
+	 * 아이디 카운트 조회 전담 함수
+	 */
+	public int getIdCnt(String id) {
+		// 반환값 변수
+		int cnt = 0;
+		// 커넥션 꺼내오고
+		con = db.getCon();
+		// 질의명령 가져오고
+		sql = mSql.getSQL(mSql.SEL_ID_CNT);
+		// 명령전달도구 준비하고
+		pstmt = db.getPstmt(sql, con);
+		try {
+			// 질의명령 완성하고
+			pstmt.setString(1, id);
+			// 질의명령 보내고 결과 받고
+			rs = pstmt.executeQuery();
+			// 작업진행 행 한칸 내리고
+			rs.next();
+			// 데이터 꺼내고
+			cnt = rs.getInt("cnt");
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		// 반환하고
+		return cnt;
+	}
 }
